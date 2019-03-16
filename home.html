@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+	<meta name="description" content="Site de Eventos da Universidade Federal de Rondonópolis">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script defer src="lib/jquery.js"></script>
+    <script defer src="lib/popper.js"></script>
+    <script defer src="lib/bootstrap/js/bootstrap.js"></script>
+    <script defer src="js/home.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <!-- Modal Atualizar dados -->
+    <div class="modal fade" id="modalAtualizarDados">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Atualizar dados de Usuário</h5>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="updateEmail">Email</label>
+                            <input 
+                                id="updateEmail" 
+                                class="form-control" 
+                                type="email" 
+                                placeholder="Digite o email aqui">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateNome">Nome</label>
+                            <input 
+                                id="updateNome" 
+                                class="form-control" 
+                                type="text" 
+                                placeholder="Digite o nome aqui">
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <button class="btn btn-primary" id="detectAddressTrigger">
+                            Detectar endereco
+                        </button>
+                        <span id="alertaDetecAdress"></span>
+                    </div>
+                    <form class="endereco">
+                        <div class="form-group">
+                            <label for="updateEnderecoNumero">Numero</label>
+                            <input 
+                                id="updateEnderecoNumero" 
+                                class="form-control" 
+                                type="number" 
+                                placeholder="Digite o numero da casa">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateEnderecoRua">Rua</label>
+                            <input 
+                                id="updateEnderecoRua" 
+                                class="enderecoRua form-control" 
+                                type="text" 
+                                placeholder="Digite a rua aqui">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateEnderecoRua">Bairro</label>
+                            <input 
+                                id="updateEnderecoBairro" 
+                                class="enderecoBairro form-control" 
+                                type="text" 
+                                placeholder="Digite o bairro">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateEnderecoRua">Cidade</label>
+                            <input 
+                                class="enderecoCidade form-control" 
+                                type="text" 
+                                placeholder="Digite o nome da cidade">
+                        </div>
+                        <div class="form-group">
+                            <label for="updateEnderecoRua">Estado</label>
+                            <input 
+                                class="enderecoEstado form-control" 
+                                type="text" 
+                                placeholder="Digite o nome do estado">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button 
+                    type="button" 
+                    class="btn btn-secondary" 
+                    data-dismiss="modal">Fechar
+                </button>
+                <button
+                    id="modalUpdateSave" 
+                    type="button" 
+                    class="btn btn-primary">Salvar Alterações
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Login/SignUp -->
+    <div class="modal fade" id="modalLoginSignUp">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a 
+                                class="nav-link active" 
+                                data-toggle="tab" 
+                                href="#tabContentLogin"
+                            >Entrar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a 
+                                class="nav-link" 
+                                data-toggle="tab" 
+                                href="#tabContentSignUp"
+                            >Criar conta</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-content">
+    <!-- Login-->        <div class="tab-pane active" id="tabContentLogin"><!-- Exibe separado, pane : apagao -->
+                            <form>
+                                <div class="form-group"><!-- Block em cada agrupamento -->
+                                    <label for="loginEmail">E-mail</label>
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="loginEmail"  
+                                        placeholder="Digite seu e-mail aqui" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="loginSenha">Senha</label>
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="loginSenha" 
+                                        placeholder="Digite sua senha aqui" required>
+                                </div>
+        <!-- btnLogin -->       <button 
+                                    id="btnLogin" 
+                                    class="btn btn-primary">Entrar
+                                </button>
+                            </form>
+                        </div>
+    <!-- SignUP-->      <div class="tab-pane fade" id="tabContentSignUp">
+                            <form>
+                                <div class="form-group">
+                                    <label for="signUpEmail">E-mail</label>
+                                    <input 
+                                        type="email" 
+                                        class="form-control" 
+                                        id="signUpEmail"  
+                                        placeholder="Digite seu e-mail aqui" required>
+                                </div>
+                                <div class="form-group"><!-- Block em cada agrupamento -->
+                                    <label for="signUpNome">Nome</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="signUpNome"  
+                                        placeholder="Digite seu nome aqui" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signUpSenha">Senha</label>
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="signUpSenha" 
+                                        placeholder="Digite sua senha aqui" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="signUpSenhaConfirm">Confirmar senha</label>
+                                    <input 
+                                        type="password" 
+                                        class="form-control" 
+                                        id="signUpSenhaConfirm" 
+                                        placeholder="Digite sua senha novamente" required>
+                                </div>
+                                <div class="custom-file">
+                                    <label 
+                                        class="custom-file-label" 
+                                        for="signUpImagem">Escolha uma foto de perfil
+                                    </label>
+                                    <input 
+                                        type="file" 
+                                        class="custom-file-input" 
+                                        id="signUpImagem">
+                                </div>
+                                <button 
+                                    id="btnSignUp" 
+                                    class="btn btn-primary">Enviar
+                                </button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <span 
+                                id="alertaLoginSignUp">
+                            </span>
+                            <button 
+                                type="button" 
+                                class="btn btn-secondary" 
+                                data-dismiss="modal">Cancelar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sidenav">
+        <span id="meusEventosFilter">Meus eventos</span>
+        <span id="todosEventosFilter">Todos eventos</span>
+    </div>
+
+    <div id="menuHamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div> <!-- Mesma implementação do front 1 -->
+
+    <header>
+
+        <h1 class="titulo">UFR-Eventos</h1>
+        
+        <!-- modalContaToggle -->
+        <button 
+            id="modalContaToggle" 
+            class="btn btn-primary" 
+            data-toggle="modal" 
+            data-target="#modalLoginSignUp">
+            Login / SignUp
+        </button>
+
+        <img
+            id="menuUsuarioToggle"
+            class="desativado"
+            src="img/usuario.png"
+            data-toggle="dropdown"
+            alt="Foto do perfil do usuario">
+            
+        <div id="menuUsuario" class="dropdown-menu">
+            <button id="modalUpdateToggle" class="dropdown-item">Atualizar Dados</button>
+            <!-- <hr> -->
+            <div class="dropdown-divider"></div>
+            <button id="btnLogout" class="dropdown-item">Sair</button>
+        </div>
+
+    </header>
+    
+    <div class="container">
+
+        <div class="row">
+            <!-- Card -->
+            <div class="card col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <img 
+                src="img/card_evento1.jpeg" 
+                class="card-img-top" 
+                alt="Imagem evento">
+                <div class="card-body">
+                    <h2 class="card-title">Apresentação dos trabalhos de WEB na UFR</h2>
+                    <p>
+                        Aos apresentadores, tenhamos muita calma nessa hora 
+                        e muita hora nessa calma!!
+                    </p>
+                </div>
+                <button class="btn btn-success">Participar</button>
+                <div class="card-footer">
+                    <span class="badge">
+                        <i class="material-icons">date_range</i>
+                        12/03/2019
+                    </span>
+                    <span class="badge badge-warning">
+                        <i class="material-icons">alarm_on</i>
+                        19:00 as 23:00
+                    </span>
+                </div>
+            </div>
+
+
+            <!-- GG -->
+
+            <div class="card col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <img 
+                    src="img/card_evento2.jpeg" 
+                    class="card-img-top" 
+                    alt="Imagem evento">
+                <div class="card-body">
+                    <h2 class="card-title">Palestra sobre alguma coisa</h2>
+                    <p>
+                        Descrição não muito grande, mas tambem não muito pequena
+                    </p>
+                </div>
+                <button class="btn btn-success">Participar</button>
+                <div class="card-footer">
+                    <span class="badge">
+                        <i class="material-icons">date_range</i>
+                        12/03/2019
+                    </span>
+                    <span class="badge badge-info">
+                        <i class="material-icons">alarm_on</i>
+                        22:00 as 23:00
+                    </span>
+                </div>
+            </div>
+
+            <div class="card col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <img 
+                    src="img/card_evento3.jpeg" 
+                    class="card-img-top" 
+                    alt="Imagem evento">
+                <div class="card-body">
+                    <h2 class="card-title">Palestra sobre outra coisa</h2>
+                    <p>
+                        Descrição não muito grande, mas tambem não muito pequena
+                    </p>
+                </div>
+                <button class="btn btn-success">Participar</button>
+                <div class="card-footer">
+                    <span class="badge">
+                        <i class="material-icons">date_range</i>
+                        13/03/2019
+                    </span>
+                    <span class="badge">
+                        <i class="material-icons">alarm_on</i>
+                        10:00 as 11:20
+                    </span>
+                </div>
+            </div>
+
+            <div class="card col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <img 
+                    src="img/card_evento4.jpeg" 
+                    class="card-img-top" 
+                    alt="Imagem evento">
+                <div class="card-body">
+                    <h2 class="card-title">Mais outra palestra</h2>
+                    <p>
+                        Descrição não muito grande, mas tambem não muito pequena
+                    </p>
+                </div>
+                <button class="btn btn-success">Participar</button>
+                <div class="card-footer">
+                    <span class="badge">
+                        <i class="material-icons">date_range</i>
+                        17/03/2019
+                    </span>
+                    <span class="badge">
+                        <i class="material-icons">alarm_on</i>
+                        10:00 as 11:20
+                    </span>
+                </div>
+            </div>
+
+            <div class="card col-xl-3 col-lg-4 col-md-4 col-sm-6">
+                <img 
+                    src="img/card_evento5.jpeg" 
+                    class="card-img-top" 
+                    alt="Imagem evento">
+                <div class="card-body">
+                    <h2 class="card-title">Porque eu so penso em palestra????</h2>
+                    <p>
+                        Descrição não muito grande, mas tambem não muito pequena
+                    </p>
+                </div>
+                <button class="btn btn-success">Participar</button>
+                <div class="card-footer">
+                    <span class="badge">
+                        <i class="material-icons">date_range</i>
+                        22/03/2019
+                    </span>
+                    <span class="badge">
+                        <i class="material-icons">alarm_on</i>
+                        10:00 as 11:20
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

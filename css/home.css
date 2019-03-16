@@ -1,0 +1,160 @@
+.desativado { display: none !important; }
+
+#alertaDetecAdress{
+    color: red;
+    margin-left: 3px;
+}
+
+#btnSignUp{
+    margin-top: 20px;
+}
+
+#sidenav.aberto{
+    width: 320px;
+}
+
+#menuHamburger.aberto{
+    margin-left: 250px;
+}
+
+#menuHamburger.aberto > div:first-child { transform: rotateZ(-45deg); top: 10px;}
+#menuHamburger.aberto > div:nth-child(2) { transform: rotateZ(45deg); }
+#menuHamburger.aberto > div:last-child { transform: rotateZ(45deg); top: -10px;}
+
+#btnLogin { margin-top: 20px; }
+
+header{
+    top: 0;
+    position: fixed;             /* FLAG */
+    width: 100%;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.16);
+}
+
+#modalContaToggle{                                   
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+
+#alertaLoginSignUp{
+    color: red;
+    text-align: left;
+}
+
+.card{
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.card-body{
+    padding: 0px 20px 5px 20px;
+}
+
+.card button{
+    margin: 0px 20% 10px 20%;
+}
+
+.card img {
+    padding: 10px;
+}
+
+.card h2{
+    font-size: 18px;
+}
+
+.card span{
+    font-size: 14px;
+}
+
+.card i{
+    font-size: 12px;
+}
+
+.titulo{
+    text-align: center;
+    color: dimgray;
+}
+
+#menuUsuarioToggle{
+    top: 5px;
+    right: 30px;
+    position: fixed;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: solid 1px dimgray;
+    padding: 3px;
+    cursor: pointer;
+}
+
+#menuHamburger{
+    left: 30px;
+    position: fixed;                 /* FLAG */
+    top: 10px;
+    cursor: pointer;
+    z-index: 2;
+    transition: 0.5s;
+}
+
+#menuHamburger > div{
+    background-color: dimgray;
+    margin-top: 5px;
+    width: 25px;
+    height: 5px;
+    position: relative;             /* FLAG */
+    border-radius: 25%;
+}
+
+#menuHamburger:hover>div { background-color: black; }
+
+#sidenav {
+    position: fixed;
+    height: 100%;
+    width: 0px;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow: hidden;        /* FLAG: https://codepen.io/eliasjuniornino/pen/ZPJGjY */
+    transition: 0.5s;
+    padding-top: 50px;
+    box-shadow: 3px 0px 2px 0 rgba(0,0,0,.16);
+}
+
+#sidenav span {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #818181;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    white-space: nowrap;   /* FLAG: https://www.w3schools.com/cssref/pr_text_white-space.asp */
+}
+
+#sidenav span:hover {
+    color: black;
+}
+
+@media (max-width: 575px) and (min-width: 360px){
+    .card{
+        margin: 0px auto 10px auto;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 420px){
+    #menuHamburger{
+        left: 10px;
+    }
+
+    #menuUsuarioToggle{
+        top: 10px;
+        width: 35px;
+        height: 35px;
+        right: 5px;
+    }
+}
