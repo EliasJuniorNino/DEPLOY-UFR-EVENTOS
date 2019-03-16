@@ -79,7 +79,7 @@ $('#btnLogin').click(() => {
     let email = $('#loginEmail').val()
     let senha = $('#loginSenha').val()
 
-    if ( email == undefined || senha == undefined ){
+    if ( email == '' || !email.includes('@') || senha == '' ){
         $('#alertaLoginSignUp').html('Os campos email e senha, são obrigatorio')
     }
     else{
