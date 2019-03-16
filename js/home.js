@@ -84,7 +84,7 @@ $('#btnLogin').click(() => {
     }
     else{
         // TODO: Enviar usuario e senha como POST
-        fetch('backend.json').then( (resposta) => {
+        fetch('/backend.json').then( (resposta) => {
             switch(resposta.status){
                 case 200:
                     resposta.json().then( (json) => {
