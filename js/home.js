@@ -79,9 +79,8 @@ $('#btnLogin').click(() => {
     let email = $('#loginEmail').val()
     let senha = $('#loginSenha').val()
 
-    if ( !email.valid() || !senha.valid()){
+    if ( email == undefined || senha == undefined ){
         $('#alertaLoginSignUp').html('Os campos email e senha, são obrigatorio')
-        alert('erro')
     }
     else{
         // TODO: Enviar usuario e senha como POST
