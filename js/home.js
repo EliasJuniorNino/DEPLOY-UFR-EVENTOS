@@ -26,7 +26,7 @@ function atualizarComponentesTela(){
         }
         else {
             // TODO: Enviar session_id como POST
-            fetch('backend.json').then( (response) => {
+            fetch('/backend.json').then( (response) => {
                 response.json().then( (json) => {
                     sessionStorage.setItem('imagem', json.imagem)
                     sessionStorage.setItem('email', json.email)
@@ -71,15 +71,11 @@ $('#modalUpdateToggle').click( () => {
     $('#updateNome').val(nomeUsuario)
 })
 
-$('#modalUpdateSave').click( () => {
-    // TODO: Enviar post para servidor com as alterações
-})
-
 $('#btnLogin').click(() => {
     let email = $('#loginEmail').val()
     let senha = $('#loginSenha').val()
 
-    if ( email == '' || !email.includes('@') || senha == '' ){
+    if ( !email.includes('@') || senha == ''){
         $('#alertaLoginSignUp').html('Os campos email e senha, são obrigatorio')
     }
     else{
@@ -114,7 +110,7 @@ $('#btnSignUp').click(() => {
     
     if ( senha == senhaConfirm ){
         // TODO: Enviar dados de cadastro como POST
-        fetch('backend.json').then( (response) => {
+        fetch('/backend.json').then( (response) => {
             response.json().then( (json) => {
                 localStorage.setItem('data_expiracao', json.data_expiracao)
                 localStorage.setItem('session_id', json.session_id)
@@ -161,10 +157,10 @@ $('#detectAddressTrigger').click(() => {
             fetch(url).then((response) => {
                 response.json().then((json) => {
                     if (json.address != undefined){
-                        $('.enderecoRua').val(json.address.road)
-                        $('.enderecoBairro').val(json.address.neighbourhood)
-                        $('.enderecoCidade').val(json.address.city)
-                        $('.enderecoEstado').val(json.address.state)
+                        $('#updateEnderecoRua').val(json.address.road)
+                        $('#updateEnderecoBairro').val(json.address.neighbourhood)
+                        $('#updateEnderecoCidade').val(json.address.city)
+                        $('#updateEnderecoEstado').val(json.address.state)
                     }
                 })
             })
